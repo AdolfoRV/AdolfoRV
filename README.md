@@ -4,9 +4,9 @@ Hi there! I'm Adolfo Rojas Valenzuela, and welcome to the developer side of my c
 
 I am a native Spanish speaker from Chile 🇨🇱 with advanced English proficiency, and I’m currently learning French.
 
-## 🛠 Tech Stack
+## :hammer_and_wrench: Tech Stack
 
-### 🧰 Languages
+### :toolbox: Languages
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![R](https://img.shields.io/badge/r-%23276DC3.svg?style=for-the-badge&logo=r&logoColor=white)
 ![Scala](https://img.shields.io/badge/Scala-DC322F?style=for-the-badge&logo=scala&logoColor=white)
@@ -15,7 +15,7 @@ I am a native Spanish speaker from Chile 🇨🇱 with advanced English proficie
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
 <!--
-## 🤖 Data Science and Machine Learning Frameworks
+## :robot: Data Science and Machine Learning Frameworks
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black)
 ![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)
 ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
@@ -25,7 +25,7 @@ I am a native Spanish speaker from Chile 🇨🇱 with advanced English proficie
 ![SciPy](https://img.shields.io/badge/SciPy-%230C55A5.svg?style=for-the-badge&logo=scipy&logoColor=%white)
 -->
 
-### ❔ Other
+### :grey_question: Other
 ![LaTeX](https://img.shields.io/badge/latex-%23008080.svg?style=for-the-badge&logo=latex&logoColor=white)
 ![Overleaf](https://img.shields.io/badge/Overleaf-47A141?style=for-the-badge&logo=Overleaf&logoColor=white)
 ![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white)
