@@ -1,0 +1,48 @@
+name: Publicar CVs en Release
+
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - "typst/**"
+            - ".github/workflows/release-cv.yml"
+    workflow_dispatch:
+
+permissions:
+    contents: write
+
+jobs:
+    release:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout del repositorio
+              uses: actions/checkout@v4
+
+            - name: Instalar Typst
+              uses: typst-community/setup-typst@v3
+              with:
+                  typst-version: "latest"
+
+            - name: Compilar PDFs
+              run: |
+                  typst compile typst/cv-esp.typ cv-esp.pdf
+                  typst compile typst/cv-eng.typ cv-eng.pdf
+
+            - name: Actualizar tag latest al commit actual
+              run: |
+                  git config user.name "github-actions[bot]"
+                  git config user.email "github-actions[bot]@users.noreply.github.com"
+                  git tag -fa latest -m "Última versión del CV"
+                  git push origin latest --force
+
+            - name: Publicar PDFs en el Release
+              uses: softprops/action-gh-release@v2
+              with:
+                  tag_name: latest
+                  name: "CV Actualizado"
+                  body: "Versión compilada automáticamente desde el último commit en `main`."
+                  make_latest: true
+                  files: |
+                      cv-esp.pdf
+                      cv-eng.pdf
