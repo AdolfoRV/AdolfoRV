@@ -1,0 +1,52 @@
+name: Publicar CVs en GitHub Pages
+
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - "typst/**"
+            - ".github/workflows/**"
+    workflow_dispatch:
+
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+
+concurrency:
+    group: "pages"
+    cancel-in-progress: true
+
+jobs:
+    deploy:
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout del repositorio
+              uses: actions/checkout@v4
+
+            - name: Instalar Typst
+              uses: typst-community/setup-typst@v3
+              with:
+                  typst-version: "latest"
+
+            - name: Compilar PDFs en carpeta de salida
+              run: |
+                  mkdir -p _site
+                  typst compile typst/cv-esp.typ _site/cv-esp.pdf
+                  typst compile typst/cv-eng.typ _site/cv-eng.pdf
+
+            - name: Configurar GitHub Pages
+              uses: actions/configure-pages@v5
+
+            - name: Subir PDFs como artefacto web
+              uses: actions/upload-pages-artifact@v3
+              with:
+                  path: "_site"
+
+            - name: Desplegar en GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4
